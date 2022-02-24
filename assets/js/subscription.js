@@ -5,6 +5,7 @@ function subscriptionMessage() {
     return function (chatBot) {
         chatBot.subscriptions.onSendMessage(function (messageData, next) {
             messageData.message = messageData.message.replace(regex, replaceWith);
+            console.log(messageData);
             return next(messageData);
         }
         );
