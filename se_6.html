@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="https://sdk.inbenta.io/chatbot/1/inbenta-chatbot-sdk.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header__title">Hallyson&#039;s BOT</div>
+        <div class="header__subtitle"></div>
+    </div>
+    <div class="body">
+        <div class="body__contents">
+            <div class="body__contents__gray-block" style="width:194px"></div>
+            <div class="body__contents__gray-block"></div>
+            <div class="body__contents__gray-block" style="height: 120px"></div>
+            <div class="body__contents__gray-block"></div>
+            <div class="body__contents__gray-block"></div>
+            <div class="body__contents__gray-block" style="width:194px;margin-bottom: 0"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer__logo">in<span>b</span>enta</div>
+    </div>
+    <script>
+        var authorization = {
+            domainKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwcm9qZWN0IjoiaGFsbHlzb25fY2hhdGJvdF9lbiIsImRvbWFpbl9rZXlfaWQiOiJCZGpKWUYwdlg3QVc3WWFqQ1BFTnZ3OjoifQ.fhOQ9RioqVV1MWtY66gLDdXAIyAzQbtxq_8nEkxMcjrqZWkK8q6B_IP1W7b5tpqakJnKzXPnvZ3pfRO10AArJw',
+            inbentaKey: 'Bdi1u8638E5u4UDDuuaagRZT5d1f0domyeuZd0ky5A4='
+        }
+
+        InbentaChatbotSDK.buildWithDomainCredentials(authorization);
+    </script>
+</body>
+
+</html>
