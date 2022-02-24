@@ -4,6 +4,7 @@
 function subscriptionMessage() {
     console.log('aqui');
     return function (chatBot) {
+        console.log(chatbot);
         chatBot.subscriptions.onSendMessage(function (messageData, next) {
             messageData.message = messageData.message.replace(regex, replaceWith);
             console.log(messageData);
