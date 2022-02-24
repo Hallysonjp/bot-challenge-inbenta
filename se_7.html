@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Demo</title>
     <script src="https://sdk.inbenta.io/chatbot/1/inbenta-chatbot-sdk.js"></script>
+
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -26,6 +27,7 @@
     <div class="footer">
         <div class="footer__logo">in<span>b</span>enta</div>
     </div>
+    <script src="assets/js/subscription.js"></script>
     <script>
         function build() {
             var config = {
@@ -40,6 +42,9 @@
                         "enter-question": "Ask me anything you want"
                     }
                 },
+                adapters: [
+                    subscriptionMessage(),
+                ]
             };
             var authorization = {
                 domainKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwcm9qZWN0IjoiaGFsbHlzb25fY2hhdGJvdF9lbiIsImRvbWFpbl9rZXlfaWQiOiJCZGpKWUYwdlg3QVc3WWFqQ1BFTnZ3OjoifQ.fhOQ9RioqVV1MWtY66gLDdXAIyAzQbtxq_8nEkxMcjrqZWkK8q6B_IP1W7b5tpqakJnKzXPnvZ3pfRO10AArJw',
@@ -53,19 +58,6 @@
             config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
 
             var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, config);
-
-            console.log(bot);
-
-            bot.subscriptions.onDisplaySystemMessage(function (data, next) {
-                // Display message
-                const messageId = next(data);
-
-
-                // AFTER display system message code here
-                alert('system message id: ' + messageId);
-
-                return messageId;
-            });
         }
 
 
