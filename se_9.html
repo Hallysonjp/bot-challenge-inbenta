@@ -40,18 +40,15 @@
         };
 
         function colorfulForm(bot) {
-            console.log(bot);
-            bot.subscriptions.onSendMessage(
-                function (messageData, next) {
-                    console.log(messageData);
-                    return next();
-                }
-            );
+            bot.subscriptions.onDisplayUserMessage(function (messageData, next) {
+                messageData.message = chooseColor(messageData.message);
+                console.log(messageData);
+                return next(messageData);
+            });
         }
 
         var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
             adapters: [
-                receiveData,
                 colorfulForm,
             ]
         });
