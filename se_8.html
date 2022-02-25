@@ -42,11 +42,10 @@
         config['adapters'] = [];
 
         function alertAdapter(bot) {
-            console.log(bot);
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
                     if (messageData.message === "show me an alert") {
-                        chatbot.actions.displaySystemMessage({
+                        bot.actions.displaySystemMessage({
                             message: "Here's your alert"
                         });
                         return next();
