@@ -33,48 +33,88 @@
 </html>
 <script src="assets/js/subscription.js"></script>
 <script>
+
+
     function build() {
         var config = {
-            "environment": "production",
-            "userType": 0,
+            "labels": {
+                "en": {
+                    "alert-button": "Try again",
+                    "alert-message": "Something went wrong, please click the button to reload.",
+                    "alert-title": "OOOOPS...!",
+                    "generic-error-message": "The format of your answer is not valid",
+                    "close-chat": "Do you want to close this chat?<p><div class=\"confirmation-box__subtitle\">You will lose the entire conversation.<\/p><\/div>",
+                    "enter-question": "Enter your question",
+                    "submit": "Submit",
+                    "download": "Download",
+                    "chat-closed": "Chat closed",
+                    "close-agent": "Do you want to leave the conversation with this agent?",
+                    "wait-for-agent": "Waiting for an agent...",
+                    "agent-left": "{agentName} has left the chat",
+                    "agent-joined": "{agentName} has joined the chat",
+                    "related-content-title": "You might also be interested in:",
+                    "see-more": "More info",
+                    "choose-option": "Choose an option",
+                    "selected-option": "You have selected {variableLabel}",
+                    "created-ticket": "Your ticket ID {ticketId} has been successfully created.",
+                    "interface-title": "Hallyson's bot"
+                }
+            },
             "lang": "en",
+            "skin": "space-cowboy",
+            "inputCharacterCounter": true,
+            "autoDisplaySideWindow": true,
+            "inputCharacterCounterMax": 256,
+            "showDateTime": true,
+            "delayOnAnswer": 2000,
+            "delayOnMultipleAnswers": true,
+            "showActivityOnDelay": 1000,
             "closeButton": {
                 "visible": true
             },
-            labels: {
-                en: {
-                    "enter-question": "Ask me anything you want"
-                }
+            "answers": {
+                "maxRelatedContents": 3,
+                "maxOptions": 3
             },
-            adapters: [
-                beerAdapter,
-            ]
+            "relatedContentsExpand": false,
+            "relatedPosition": "mixed",
+            "ratingOptions": [
+                {
+                    "id": 1,
+                    "name": "Yes",
+                    "comment": false
+                },
+                {
+                    "id": 1,
+                    "name": "Yes",
+                    "comment": true
+                }
+            ],
+            "ratingPosition": "sideWindow",
+            "avatar": {
+                "shouldUse": false,
+                "displayPosition": "top",
+                "avatarModel": "A1",
+                "camera": "PC",
+                "outfit": "skin_1"
+            },
+            "environment": "preproduction",
+            "chatbotId": "6218fd50dda92",
         };
         var authorization = {
             domainKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwcm9qZWN0IjoiaGFsbHlzb25fY2hhdGJvdF9lbiIsImRvbWFpbl9rZXlfaWQiOiJCZGpKWUYwdlg3QVc3WWFqQ1BFTnZ3OjoifQ.fhOQ9RioqVV1MWtY66gLDdXAIyAzQbtxq_8nEkxMcjrqZWkK8q6B_IP1W7b5tpqakJnKzXPnvZ3pfRO10AArJw',
             inbentaKey: 'Bdi1u8638E5u4UDDuuaagRZT5d1f0domyeuZd0ky5A4='
         };
 
-        config['adapters'] = [];
-
-        function beerAdapter(bot) {
-            console.log(bot);
-            bot.subscriptions.onSendMessage(
-                function (messageData, next) {
-                    console.log(messageData);
-                }
-            );
-        }
+        config['adapters'] = [
+            beerAdapter
+        ];
 
 
         // Surveys
         config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
 
-        var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
-            adapters: [
-                beerAdapter
-            ]
-        });
+        InbentaChatbotSDK.buildWithDomainCredentials(authorization, config);
     }
 
 
