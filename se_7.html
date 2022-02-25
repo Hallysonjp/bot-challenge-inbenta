@@ -47,7 +47,7 @@
                 }
             },
             adapters: [
-                subscriptionMessage(),
+                beerAdapter,
             ]
         };
         var authorization = {
@@ -56,6 +56,14 @@
         };
 
         config['adapters'] = [];
+
+        function beerAdapter(bot) {
+            bot.subscriptions.onSendMessage(
+                function (messageData, next) {
+                    console.log(messageData);
+                }
+            );
+        }
 
 
         // Surveys
