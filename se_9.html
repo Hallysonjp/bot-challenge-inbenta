@@ -40,13 +40,13 @@
         };
 
         function colorfulForm(bot) {
-            bot.actions.chooseColor(
-                function (messageData, next) {
-                    console.log(messageData);
-                    console.log(next);
-                    return next();
-                }
-            );
+            var color = '';
+            bot.subscriptions.onCustomTrigger(function (next) {
+                bot.api.chooseColor(color).then(function (result) {
+                    console.log(color);
+                    console.log(result);
+                });
+            });
         }
 
         var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
