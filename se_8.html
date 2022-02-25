@@ -46,7 +46,7 @@
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
                     if (messageData.message === "show me an alert") {
-                        alert("Here's your alert");
+                        return next(alert("Here's your alert"));
                     }
                 }
             );
