@@ -41,6 +41,7 @@
 
         function colorfulForm(bot) {
             var color = '';
+            console.log(bot);
             bot.subscriptions.onCustomTrigger(function (next) {
                 console.log(next);
                 bot.api.chooseColor(color).then(function (result) {
