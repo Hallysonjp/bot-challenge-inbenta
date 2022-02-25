@@ -39,8 +39,6 @@
             inbentaKey: 'Bdi1u8638E5u4UDDuuaagRZT5d1f0domyeuZd0ky5A4='
         };
 
-        // config['adapters'] = [];
-
         function alertAdapter(bot) {
             console.log(bot);
             bot.subscriptions.onSendMessage(
@@ -49,15 +47,11 @@
                         bot.actions.displaySystemMessage({
                             message: "Here's your alert"
                         });
-                        return next();
+                        return next(messageData);
                     }
                 }
             );
         }
-
-
-        // Surveys
-        // config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
 
         var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
             adapters: [

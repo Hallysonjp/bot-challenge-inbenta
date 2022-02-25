@@ -5,7 +5,129 @@
     <meta charset="UTF-8">
     <title>Demo</title>
     <script src="https://sdk.inbenta.io/chatbot/1/inbenta-chatbot-sdk.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @font-face {
+            font-family: 'inbentaOpenSans';
+            src: url('https://cdn.inbenta.io/static/fonts/OpenSans-Regular.woff2') format('woff2'),
+                url('https://cdn.inbenta.io/static/fonts/OpenSans-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'inbentaMontserrat';
+            src: url('https://cdn.inbenta.io/static/fonts/montserrat-light-webfont.woff2') format('woff2'),
+                url('https://cdn.inbenta.io/static/fonts/montserrat-light-webfont.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'inbentaFont';
+            src: url('https://cdn.inbenta.io/static/fonts/inbenta.woff2') format('woff2'),
+                url('https://cdn.inbenta.io/static/fonts/inbenta.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .header {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            align-items: center;
+            padding: 68px 0;
+            background-image: url("https://cdn.inbenta.io/static/images/product/inbenta-shared-app-hero.png");
+            background-size: cover;
+            color: white;
+            height: 188px;
+            box-sizing: border-box;
+        }
+
+        .header__title {
+            font-family: "inbentaMontserrat";
+            font-size: 22px;
+            line-height: 26px;
+        }
+
+        .header__subtitle {
+            font-family: "inbentaOpenSans";
+            font-size: 13.5px;
+            line-height: 22px;
+        }
+
+        .body {
+            background-color: white;
+            height: -moz-calc(100vh - 228px);
+            height: -webkit-calc(100vh - 228px);
+            height: calc(100vh - 228px);
+            padding: 0 40px;
+            overflow: auto;
+        }
+
+        .body__contents {
+            max-width: 648px;
+            width: 100%;
+            margin: 0px auto;
+            box-sizing: border-box;
+            padding: 40px 0;
+        }
+
+        .body__contents__gray-block {
+            background-color: #EEEEEE;
+            height: 24px;
+            margin-bottom: 23px;
+            width: 100%;
+        }
+
+        .footer {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            justify-content: center;
+            font-family: "inbentaFont";
+            font-size: 18px;
+            height: 40px;
+            padding: 12px 10px;
+            background-color: #212121;
+            box-sizing: border-box;
+        }
+
+        .footer__logo {
+            color: white;
+        }
+
+        .footer__logo span {
+            color: #FF1744;
+        }
+
+        .inbenta-bot__chat__header {
+            background-color: #212121 !important;
+        }
+
+        .inbenta-bot__launcher {
+            background-color: #212121 !important;
+        }
+
+        .inbenta-bot__launcher:hover {
+            background-color: #4b4b4b !important;
+        }
+    </style>
 </head>
 
 <body>

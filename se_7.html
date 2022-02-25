@@ -41,6 +41,14 @@
             "closeButton": {
                 "visible": true
             },
+            conversationWindow: {
+                position: {
+                    top: null,
+                    left: null,
+                    bottom: 15,
+                    right: 200,
+                },
+            },
             labels: {
                 en: {
                     "enter-question": "Ask me anything you want"
@@ -57,24 +65,10 @@
 
         config['adapters'] = [];
 
-        function beerAdapter(bot) {
-            console.log(bot);
-            bot.subscriptions.onSendMessage(
-                function (messageData, next) {
-                    console.log(messageData);
-                }
-            );
-        }
-
-
         // Surveys
         config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
 
-        var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
-            adapters: [
-                beerAdapter
-            ]
-        });
+        var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, config);
     }
 
 
