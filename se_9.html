@@ -43,12 +43,11 @@
             console.log(bot);
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
-                    if (messageData.message === "show me an alert") {
-                        bot.actions.displaySystemMessage({
-                            message: "Here's your alert"
-                        });
-                        return next();
-                    }
+                    bot.actions.chooseColor(function (a) {
+                        console.log(a);
+                        bot.actions.displayChatbotMessage({ message: "teste" });
+                    });
+                    return next();
                 }
             );
         }
