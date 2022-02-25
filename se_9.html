@@ -40,8 +40,8 @@
         };
 
         function colorfulForm(bot) {
-            bot.subscriptions.onSendMessage(function (messageData, chooseColor) {
-                console.log(chooseColor());
+            bot.subscriptions.onSendMessage(function (messageData, chooseColor, next) {
+                console.log(chooseColor(messageData));
             });
         }
 
