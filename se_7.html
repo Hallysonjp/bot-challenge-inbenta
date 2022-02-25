@@ -27,48 +27,49 @@
     <div class="footer">
         <div class="footer__logo">in<span>b</span>enta</div>
     </div>
-    <script src="assets/js/subscription.js"></script>
-    <script>
-        function build() {
-            var config = {
-                "environment": "production",
-                "userType": 0,
-                "lang": "en",
-                "closeButton": {
-                    "visible": true
-                },
-                labels: {
-                    en: {
-                        "enter-question": "Ask me anything you want"
-                    }
-                },
-                subscriptions: [
-                    subscriptionMessage(),
-                ]
-            };
-            var authorization = {
-                domainKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwcm9qZWN0IjoiaGFsbHlzb25fY2hhdGJvdF9lbiIsImRvbWFpbl9rZXlfaWQiOiJCZGpKWUYwdlg3QVc3WWFqQ1BFTnZ3OjoifQ.fhOQ9RioqVV1MWtY66gLDdXAIyAzQbtxq_8nEkxMcjrqZWkK8q6B_IP1W7b5tpqakJnKzXPnvZ3pfRO10AArJw',
-                inbentaKey: 'Bdi1u8638E5u4UDDuuaagRZT5d1f0domyeuZd0ky5A4='
-            };
 
-            config['adapters'] = [];
-
-
-            // Surveys
-            config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
-
-            var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, config);
-        }
-
-
-        var interval = setInterval(function () {
-            if (window.SDKHCAdapter) {
-                clearInterval(interval);
-                build();
-            }
-        }, 500);
-
-    </script>
 </body>
 
 </html>
+<script src="assets/js/subscription.js"></script>
+<script>
+    function build() {
+        var config = {
+            "environment": "production",
+            "userType": 0,
+            "lang": "en",
+            "closeButton": {
+                "visible": true
+            },
+            labels: {
+                en: {
+                    "enter-question": "Ask me anything you want"
+                }
+            },
+            subscriptions: [
+                subscriptionMessage(),
+            ]
+        };
+        var authorization = {
+            domainKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwcm9qZWN0IjoiaGFsbHlzb25fY2hhdGJvdF9lbiIsImRvbWFpbl9rZXlfaWQiOiJCZGpKWUYwdlg3QVc3WWFqQ1BFTnZ3OjoifQ.fhOQ9RioqVV1MWtY66gLDdXAIyAzQbtxq_8nEkxMcjrqZWkK8q6B_IP1W7b5tpqakJnKzXPnvZ3pfRO10AArJw',
+            inbentaKey: 'Bdi1u8638E5u4UDDuuaagRZT5d1f0domyeuZd0ky5A4='
+        };
+
+        config['adapters'] = [];
+
+
+        // Surveys
+        config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
+
+        var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, config);
+    }
+
+
+    var interval = setInterval(function () {
+        if (window.SDKHCAdapter) {
+            clearInterval(interval);
+            build();
+        }
+    }, 500);
+
+</script>
