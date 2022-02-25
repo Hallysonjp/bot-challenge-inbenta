@@ -40,8 +40,7 @@
         };
 
         function colorfulForm(bot) {
-            console.log(bot);
-            bot.subscriptions.onSendMessage(
+            bot.actions.chooseColor(
                 function (messageData, next) {
                     console.log(messageData);
                     console.log(next);
