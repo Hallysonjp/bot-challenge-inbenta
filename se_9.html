@@ -43,10 +43,11 @@
             console.log(bot);
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
-                    bot.actions.chooseColor(function (a) {
-                        console.log(a);
-                        bot.actions.displayChatbotMessage({ message: "teste" });
-                    });
+                    console.log(messageData);
+                    // bot.actions.chooseColor(function (a) {
+                    //     console.log(a);
+                    //     bot.actions.displayChatbotMessage({ message: "teste" });
+                    // });
                     return next();
                 }
             );
