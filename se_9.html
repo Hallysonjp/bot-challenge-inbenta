@@ -44,18 +44,6 @@
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
                     console.log(messageData);
-
-                    const chatBotmessageData = {
-                        type: 'answer',
-                        message: 'Custom answer in conversationWindow',
-                    }
-
-                    bot.actions.displayChatbotMessage(chatBotmessageData);
-
-                    // bot.actions.chooseColor(function (a) {
-                    //     console.log(a);
-                    //     bot.actions.displayChatbotMessage({ message: "teste" });
-                    // });
                     return next();
                 }
             );
@@ -63,7 +51,8 @@
 
         var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
             adapters: [
-                colorfulForm
+                receiveData,
+                colorfulForm,
             ]
         });
     }
