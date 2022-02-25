@@ -45,16 +45,18 @@
                 function (messageData, next) {
                     console.log(messageData);
 
-                    var color = bot.actions.customTrigger(function (chooseColor) {
-                        console.log(chooseColor);
-                    });
-                    console.log(color);
+                    const chatBotmessageData = {
+                        type: 'answer',
+                        message: 'Custom answer in conversationWindow',
+                    }
+
+                    chatBot.actions.displayChatbotMessage(chatBotmessageData);
 
                     // bot.actions.chooseColor(function (a) {
                     //     console.log(a);
                     //     bot.actions.displayChatbotMessage({ message: "teste" });
                     // });
-                    return false;
+                    return next();
                 }
             );
         }
