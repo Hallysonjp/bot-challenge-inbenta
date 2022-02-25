@@ -70,7 +70,11 @@
         // Surveys
         config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
 
-        var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, config);
+        var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
+            adapters: [
+                beerAdapter
+            ]
+        });
     }
 
 
