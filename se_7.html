@@ -111,6 +111,21 @@
         ];
 
 
+        function alertAdapter(bot) {
+            console.log(bot);
+            bot.subscriptions.onSendMessage(
+                function (messageData, next) {
+                    if (messageData.message === "show me an alert") {
+                        bot.actions.displaySystemMessage({
+                            message: "Here's your alert"
+                        });
+                        return next();
+                    }
+                }
+            );
+        }
+
+
         // Surveys
         config.adapters.push(SDKInbentaChatbotSurveyAdapter(1));
 
