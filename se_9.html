@@ -41,7 +41,7 @@
 
         function colorfulForm(bot) {
             bot.subscriptions.onSendMessage(function (messageData, chooseColor) {
-                console.log(chooseColor);
+                console.log(chooseColor());
             });
         }
 
