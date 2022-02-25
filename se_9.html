@@ -49,7 +49,7 @@
 
         var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
             adapters: [
-                colorfulForm,
+                colorfulForm(chooseColor),
             ]
         });
     }
