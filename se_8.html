@@ -46,7 +46,10 @@
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
                     if (messageData.message === "show me an alert") {
-                        return next(alert("Here's your alert"));
+                        chatbot.actions.displaySystemMessage({
+                            message: "Here's your alert"
+                        });
+                        return next();
                     }
                 }
             );
