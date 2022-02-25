@@ -45,7 +45,9 @@
                 function (messageData, next) {
                     console.log(messageData);
 
-                    var color = bot.actions.customTrigger();
+                    var color = bot.actions.customTrigger(function chooseColor(color) {
+                        console.log(color);
+                    });
                     console.log(color);
 
                     // bot.actions.chooseColor(function (a) {
