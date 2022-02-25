@@ -41,7 +41,7 @@
 
         config['adapters'] = [];
 
-        function beerAdapter(bot) {
+        function alertAdapter(bot) {
             console.log(bot);
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
@@ -58,7 +58,7 @@
 
         var bot = InbentaChatbotSDK.buildWithDomainCredentials(authorization, {
             adapters: [
-                beerAdapter
+                alertAdapter
             ]
         });
     }
