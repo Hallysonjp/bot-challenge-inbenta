@@ -44,6 +44,10 @@
             bot.subscriptions.onSendMessage(
                 function (messageData, next) {
                     console.log(messageData);
+
+                    var color = bot.actions.chooseColor();
+                    console.log(color);
+
                     // bot.actions.chooseColor(function (a) {
                     //     console.log(a);
                     //     bot.actions.displayChatbotMessage({ message: "teste" });
