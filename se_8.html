@@ -48,7 +48,7 @@
                         bot.actions.displaySystemMessage({
                             message: "Here's your alert"
                         });
-                        return next();
+                        return next(messageData);
                     }
                 }
             );
